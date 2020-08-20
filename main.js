@@ -1,17 +1,34 @@
-alert('Teste');
-
-class Teste{
-    executaAlgo(){
-
+class List {
+    constructor(){
+        this.data = [];
     }
 
-    outroMetodo(){
-
+    add(data){
+        this.data.push(data);
     }
 
-    maisUm(){
 
+}
+
+
+class TodoList extends List {
+    constructor(){
+        super();
+
+        this.usuario = 'Alexandre';
     }
 
-    paraFinalizar(){}
+
+    mostraUsuario(){
+        console.log(this.usuario);
+    }
+
+}
+
+const MinhaLista = new TodoList();
+
+document.getElementById('novotodo').onclick = function(){
+    MinhaLista.add('Novo Todo');
+    console.log(MinhaLista.data);
+    MinhaLista.mostraUsuario();
 }
