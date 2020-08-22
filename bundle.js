@@ -59,6 +59,66 @@ var TodoList = /*#__PURE__*/function (_List) {
     value: function mostraUsuario() {
       console.log(this.usuario);
     }
+  }, {
+    key: "usaMap",
+    value: function usaMap(arr) {
+      var novoArray = arr.map(function (numero) {
+        return numero * 2;
+      });
+      return novoArray;
+    }
+  }, {
+    key: "usaForEach",
+    value: function usaForEach(arr) {
+      arr.forEach(function (numero) {
+        return console.log(numero);
+      });
+    }
+  }, {
+    key: "usaFilter",
+    value: function usaFilter(arr) {
+      var novoArray;
+      novoArray = arr.filter(function (numero) {
+        return numero > 2;
+      });
+      return novoArray;
+    }
+  }, {
+    key: "usaFind",
+    value: function usaFind(arr) {
+      var novoArray;
+      novoArray = arr.find(function (numero) {
+        return numero === 2;
+      });
+      return novoArray;
+    }
+  }, {
+    key: "usaEvery",
+    value: function usaEvery(arr) {
+      var isAllGraterThanZero;
+      isAllGraterThanZero = arr.every(function (numero) {
+        return numero > 0;
+      });
+      return isAllGraterThanZero;
+    }
+  }, {
+    key: "usaSome",
+    value: function usaSome(arr) {
+      var someMinorThanZero;
+      someMinorThanZero = arr.some(function (numero) {
+        return numero < 0;
+      });
+      return someMinorThanZero;
+    }
+  }, {
+    key: "usaReduce",
+    value: function usaReduce(arr) {
+      var soma;
+      soma = arr.reduce(function (total, numero) {
+        return total += numero;
+      });
+      return soma;
+    }
   }]);
 
   return TodoList;
@@ -67,7 +127,13 @@ var TodoList = /*#__PURE__*/function (_List) {
 var MinhaLista = new TodoList();
 
 document.getElementById('novotodo').onclick = function () {
-  MinhaLista.add('Novo Todo');
-  console.log(MinhaLista.data);
-  MinhaLista.mostraUsuario();
+  var arr = [1, 2, 3];
+  console.log("Usando o foreach");
+  MinhaLista.usaForEach(arr);
+  console.log("Usando o map - " + MinhaLista.usaMap(arr));
+  console.log("usando o filter - " + MinhaLista.usaFilter(arr));
+  console.log("usando o find - " + MinhaLista.usaFind(arr));
+  console.log("usando o every - " + MinhaLista.usaEvery(arr));
+  console.log("usando o some - " + MinhaLista.usaSome(arr));
+  console.log("usando o reduce - " + MinhaLista.usaReduce(arr));
 };
